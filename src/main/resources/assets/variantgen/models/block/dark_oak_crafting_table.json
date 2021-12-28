@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "particle": "variantgen:block/dark_oak_crafting_table_top",
+        "north": "variantgen:block/dark_oak_crafting_table_north",
+        "south": "variantgen:block/dark_oak_crafting_table_south",
+        "east": "variantgen:block/dark_oak_crafting_table_east",
+        "west": "variantgen:block/dark_oak_crafting_table_west",
+        "up": "variantgen:block/dark_oak_crafting_table_top",
+        "down": "variantgen:block/dark_oak_crafting_table_bottom"
+    }
+}

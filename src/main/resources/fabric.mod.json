@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "variantgen",
+  "version": "${version}",
+  "name": "VariantGen",
+  "description": "",
+  "authors": [
+    "Andrew Grant (Andrew6rant)"
+  ],
+  "contact": {
+
+  },
+  "license": "MIT",
+  "icon": "assets/variantgen/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.andrew6rant.variantgen.client.VariantgenClient"
+    ],
+    "main": [
+      "io.github.andrew6rant.variantgen.Variantgen"
+    ]
+  },
+  "mixins": [
+    "variantgen.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "minecraft": "1.18.1"
+  }
+}

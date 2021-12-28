@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "particle": "variantgen:block/acacia_crafting_table_top",
+        "north": "variantgen:block/acacia_crafting_table_north",
+        "south": "variantgen:block/acacia_crafting_table_south",
+        "east": "variantgen:block/acacia_crafting_table_east",
+        "west": "variantgen:block/acacia_crafting_table_west",
+        "up": "variantgen:block/acacia_crafting_table_top",
+        "down": "variantgen:block/acacia_crafting_table_bottom"
+    }
+}
