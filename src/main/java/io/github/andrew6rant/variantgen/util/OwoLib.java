@@ -16,7 +16,7 @@ public class OwoLib extends OwoItemGroup {
     @Override
     protected void setup() {
         this.addTab(Icon.of(Blocks.CRAFTING_TABLE), "crafting_tables", ItemGroupTab.EMPTY); // group 0
-        this.addTab(Icon.of(Blocks.COMMAND_BLOCK), "testing", ItemGroupTab.EMPTY); // group 1
+        this.addTab(Icon.of(Blocks.PISTON), "pistons", ItemGroupTab.EMPTY); // group 1
         //this.addButton(ItemGroupButton.github("https://github.com/"));
     }
     @Override

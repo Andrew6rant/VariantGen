@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "variantgen:block/birch_crafting_table"
+        }
+    }
+}

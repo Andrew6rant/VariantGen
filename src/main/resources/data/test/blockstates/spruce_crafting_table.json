@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "variantgen:block/spruce_crafting_table"
+        }
+    }
+}
