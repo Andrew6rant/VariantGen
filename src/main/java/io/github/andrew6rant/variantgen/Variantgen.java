@@ -17,11 +17,13 @@ import net.devtech.arrp.json.tags.JTag;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tag.TagFactory;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -71,8 +73,10 @@ public class Variantgen implements ModInitializer {
                     addBlockLootTable(id);
                     JRecipe crafting_table_recipe = JRecipe.shaped(JPattern.pattern("XX", "XX"), JKeys.keys().key("X", JIngredient.ingredient().item(mod_id+":"+name.replaceAll("\\s+", "_").toLowerCase()+"_planks")), JResult.result(ID+":"+id));
                     RESOURCEPACK.addRecipe(new Identifier(id), crafting_table_recipe);
-                    JTag crafting_table_tag = JTag.tag().add(new Identifier(ID+":"+id));
-                    RESOURCEPACK.addTag(new Identifier("c:workstations"), crafting_table_tag); // this doesn't seem to work
+                    //JTag crafting_table_tag = JTag.tag().add(new Identifier(ID+":"+id));
+                    System.out.println(ID+":"+id);
+                    //RESOURCEPACK.addTag(new Identifier("items/arrows"), crafting_table_tag); // this doesn't seem to work properly
+                    RESOURCEPACK.addTag(new Identifier("items/arrows"), JTag.tag().add(new Identifier(ID+":"+id))); // this doesn't seem to work properly
                     total_position.getAndIncrement();
                 }
             }

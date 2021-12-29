@@ -15,7 +15,7 @@ public class Names {
             entry("blockus", Arrays.asList("Bamboo", "Charred", "White Oak", "Legacy"))
     );
     public static final Map<String, List<String>> STONE_NAMES = Map.ofEntries(
-            entry("minecraft", Arrays.asList("Stone", "Sandstone", "Red Sandstone", "Deepslate", "Andesite", "Diorite", "Granite", "Tuff", "Netherrack")),
+            entry("minecraft", Arrays.asList("Stone", "Sandstone", "Red Sandstone", "Deepslate", "Andesite", "Diorite", "Granite", "Tuff", "Netherrack", "Calcite")),
             entry("blockus", Arrays.asList("Limestone", "Marble", "Bluestone", "Soul Sandstone"))
     );
     public static final Map<String, List<String>> COBBLED_STONE_NAMES = Map.ofEntries(
