@@ -64,6 +64,7 @@ public class Variantgen implements ModInitializer {
     public void onInitialize() {
         UBlocks.init();
         AtomicInteger total_position = new AtomicInteger();
+        JTag crafting_table_tags = JTag.tag();
         Names.WOOD_NAMES.forEach((mod_id, list) -> {
             if(FabricLoader.getInstance().isModLoaded(mod_id)){
                 for (String name : list) {
@@ -73,14 +74,13 @@ public class Variantgen implements ModInitializer {
                     addBlockLootTable(id);
                     JRecipe crafting_table_recipe = JRecipe.shaped(JPattern.pattern("XX", "XX"), JKeys.keys().key("X", JIngredient.ingredient().item(mod_id+":"+name.replaceAll("\\s+", "_").toLowerCase()+"_planks")), JResult.result(ID+":"+id));
                     RESOURCEPACK.addRecipe(new Identifier(id), crafting_table_recipe);
-                    //JTag crafting_table_tag = JTag.tag().add(new Identifier(ID+":"+id));
-                    System.out.println(ID+":"+id);
-                    //RESOURCEPACK.addTag(new Identifier("items/arrows"), crafting_table_tag); // this doesn't seem to work properly
-                    RESOURCEPACK.addTag(new Identifier("items/arrows"), JTag.tag().add(new Identifier(ID+":"+id))); // this doesn't seem to work properly
+                    crafting_table_tags.add(new Identifier(ID+":"+id));
                     total_position.getAndIncrement();
                 }
             }
         });
+        RESOURCEPACK.addTag(new Identifier("c:items/workbench"), crafting_table_tags);
+        RESOURCEPACK.addTag(new Identifier("blocks/mineable/axe"), crafting_table_tags);
         ITEMGROUP.initialize();
         ResourceGen.registerLang("en_us", r -> {});
         RRPCallback.EVENT.register(e -> {
