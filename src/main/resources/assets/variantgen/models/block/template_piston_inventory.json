@@ -1,6 +1,5 @@
 {
 	"credit": "Andrew Grant, Made with Blockbench",
-	"parent": "block/block",
 	"elements": [
 		{
 			"name": "base",

@@ -41,7 +41,7 @@ public class Variantgen implements ModInitializer {
                 list.forEach((wood_type)-> {
                     new_crafting_tables.add(new CraftingTable(FabricBlockSettings.copyOf(Blocks.CRAFTING_TABLE)));
                     new_pistons.add(new PistonBlock(false, FabricBlockSettings.copyOf(Blocks.PISTON)));
-                    //new_pistons.add(new PistonBlock(true, FabricBlockSettings.copyOf(Blocks.PISTON)));
+                    new_pistons.add(new PistonBlock(true, FabricBlockSettings.copyOf(Blocks.PISTON)));
                 });
             }
         });

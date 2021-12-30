@@ -42,21 +42,24 @@ public interface BlockGenerator {
 
         ResourceGenerateable.Piston PISTON = new ResourceGenerateable.Piston(formatted_name_cobb+"_piston_base_bottom", formatted_name_cobb+"_piston_base_side", formatted_name_wood+"_piston_platform_side", formatted_name_wood+"_piston_platform_top", formatted_name_cobb+"_piston_base_bottom") {};
         BlockGenerator.register(PISTON, new PistonBlock(false, FabricBlockSettings.copyOf(Blocks.PISTON)), id, name_wood_cobb+" Piston", 1);
+        ResourceGenerateable.Piston STICKY_PISTON = new ResourceGenerateable.Piston(formatted_name_cobb+"_piston_base_bottom", formatted_name_cobb+"_piston_base_side", formatted_name_wood+"_piston_platform_side", formatted_name_wood+"_sticky_piston_platform_top", formatted_name_cobb+"_piston_base_bottom") {};
+        BlockGenerator.register(STICKY_PISTON, new PistonBlock(true, FabricBlockSettings.copyOf(Blocks.PISTON)), id_sticky, name_wood_cobb+" Sticky Piston", 1);
         addBlockLootTable(id);
-        //addBlockLootTable(id_sticky);
-        JRecipe piston_recipe = JRecipe.shaped(JPattern.pattern(
-                        "XXX",
-                        "CIC",
-                        "CRC"),
-                JKeys.keys()
+        addBlockLootTable(id_sticky);
+        JRecipe piston_recipe = JRecipe.shaped(JPattern.pattern("XXX", "CIC", "CRC"), JKeys.keys()
                         .key("X", JIngredient.ingredient().item(mod_id_wood+":"+name_wood.replaceAll("\\s+", "_").toLowerCase()+"_planks"))
                         .key("C", JIngredient.ingredient().item(mod_id_cobb+":"+name_cobb.replaceAll("\\s+", "_").toLowerCase()))
                         .key("I", JIngredient.ingredient().item("minecraft:iron_ingot")) //.tag("c:iron_ingots"))
                         .key("R", JIngredient.ingredient().item("minecraft:redstone")), //.tag("c:redstone_dusts"))
-                JResult.result(Variantgen.ID+":"+id));
+                        JResult.result(Variantgen.ID+":"+id));
         Variantgen.RESOURCEPACK.addRecipe(new Identifier(id), piston_recipe);
-        //Variantgen.RESOURCEPACK.addRecipe(new Identifier(id_sticky), sticky_piston_recipe);
+        JRecipe sticky_piston_recipe = JRecipe.shaped(JPattern.pattern("S", "P"), JKeys.keys()
+                        .key("S", JIngredient.ingredient().item("minecraft:slime_ball"))
+                        .key("P", JIngredient.ingredient().item(Variantgen.ID+":"+id)),
+                        JResult.result(Variantgen.ID+":"+id));
+        Variantgen.RESOURCEPACK.addRecipe(new Identifier(id_sticky), sticky_piston_recipe);
         Variantgen.piston_tags.add(new Identifier(Variantgen.ID+":"+id));
+        Variantgen.piston_tags.add(new Identifier(Variantgen.ID+":"+id_sticky));
     }
 
     static void initTag(String path, JTag jtag){
