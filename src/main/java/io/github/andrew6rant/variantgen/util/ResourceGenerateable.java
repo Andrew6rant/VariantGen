@@ -76,7 +76,48 @@ public interface ResourceGenerateable {
                                     .condition(JLootTable.condition("minecraft:survives_explosion"))));
         }
     }
+    class Piston implements Block {
+        private final String base_bottom, base_side, platform_side, platform_top, particle;
 
+        public Piston(String base_bottom, String base_side, String platform_side, String platform_top, String particle) {
+            this.base_bottom = Variantgen.ID + ":block/" + base_bottom;
+            this.base_side = Variantgen.ID + ":block/" + base_side;
+            this.platform_side = Variantgen.ID + ":block/" + platform_side;
+            this.platform_top = Variantgen.ID + ":block/" + platform_top;
+            this.particle = Variantgen.ID + ":block/" + particle;
+        }
+        public static Piston of(String base_bottom, String base_side, String platform_side, String platform_top, String particle) {
+            return new Piston(base_bottom, base_side, platform_side, platform_top, particle);
+        }
+        @Override
+        public void generateBlockModel(RuntimeResourcePack pack, Identifier id) {
+            pack.addModel(model("variantgen:block/template_piston").textures(textures()
+                    .var("base_bottom", this.base_bottom)
+                    .var("base_side", this.base_side)
+                    .var("platform_side", this.platform_side)
+                    .var("platform_top", this.platform_top)
+                    .var("particle", this.particle)
+            ), prefixPath(id, "block"));
+        }
+        @Override
+        public void generateBlockState(RuntimeResourcePack pack, Identifier id) {
+            String model = prefixPath(id, "block").toString();
+            pack.addBlockState(state(variant()
+                    .put("extended=false,facing=down", JState.model(model).x(90))
+                    .put("extended=false,facing=east", JState.model(model).y(90))
+                    .put("extended=false,facing=north", JState.model(model))
+                    .put("extended=false,facing=south", JState.model(model).y(180))
+                    .put("extended=false,facing=up", JState.model(model).x(270))
+                    .put("extended=false,facing=west", JState.model(model).y(270))
+                    .put("extended=true,facing=down", JState.model(model).x(90))
+                    .put("extended=true,facing=east", JState.model(model).y(90))
+                    .put("extended=true,facing=north", JState.model(model))
+                    .put("extended=true,facing=south", JState.model(model).y(180))
+                    .put("extended=true,facing=up", JState.model(model).x(270))
+                    .put("extended=true,facing=west", JState.model(model).y(270))
+                    ), id);
+        }
+    }
     class UniqueFaces implements Block {
         private final String particle, north, south, east, west, up, down;
 

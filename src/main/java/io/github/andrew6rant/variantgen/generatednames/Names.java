@@ -19,7 +19,7 @@ public class Names {
             entry("blockus", Arrays.asList("Limestone", "Marble", "Bluestone", "Soul Sandstone"))
     );
     public static final Map<String, List<String>> COBBLED_STONE_NAMES = Map.ofEntries(
-            entry("minecraft", Arrays.asList("Cobbled Deepslate", "Cobblestone", "Mossy Cobblestone", "Blackstone")),
-            entry("blockus", Arrays.asList("Legacy Cobblestone", "Legacy Mossy Cobblestone"))
+            entry("minecraft", Arrays.asList("Cobblestone", "Cobbled Deepslate", "Blackstone")), // Mossy Cobblestone maybe
+            entry("blockus", List.of("Legacy Cobblestone")) // Legacy Mossy Cobblestone maybe
     );
 }
