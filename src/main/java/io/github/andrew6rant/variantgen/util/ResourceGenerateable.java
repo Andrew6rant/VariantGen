@@ -117,15 +117,6 @@ public interface ResourceGenerateable {
                     .put("extended=true,facing=west", JState.model(model).y(270))
                     ), id);
         }
-        //@Override
-        //public void generateItemModel(RuntimeResourcePack pack, Identifier id) {
-        //    pack.addModel(model("variantgen:block/template_piston_inventory").textures(textures()
-        //            .var("base_bottom", this.base_bottom)
-        //            .var("base_side", this.base_side)
-        //            .var("platform_side", this.platform_side)
-        //            .var("platform_top", this.platform_top)
-        //    ), prefixPath(id, "block"));
-        //}
     }
     class UniqueFaces implements Block {
         private final String particle, north, south, east, west, up, down;

@@ -1,4 +1,4 @@
-package io.github.andrew6rant.variantgen.craftingtable;
+package io.github.andrew6rant.variantgen.accesswideners;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.CraftingTableBlock;
